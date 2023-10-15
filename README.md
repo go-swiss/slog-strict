@@ -32,3 +32,12 @@ func New(h slog.Handler) Logger {
 	return impl{slog.New(h)}
 }
 ```
+
+The package also includes a `slogstrict.FromSlog()` function that creates a new logger from a `*slog.Logger`.
+
+```go
+// Create a new [Logger] from a [slog.Handler]
+func New(h slog.Handler) Logger {
+	return impl{slog.New(h)}
+}
+```

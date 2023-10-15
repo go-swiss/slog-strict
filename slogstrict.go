@@ -25,6 +25,11 @@ func New(h slog.Handler) Logger {
 	return logger{slog.New(h)}
 }
 
+// Create a new [Logger] from a [*slog.Logger]
+func FromSlog(l *slog.Logger) Logger {
+	return logger{l}
+}
+
 type logger struct{ *slog.Logger }
 
 func (s logger) With(attrs ...slog.Attr) Logger {
