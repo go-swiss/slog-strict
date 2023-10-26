@@ -36,8 +36,8 @@ func New(h slog.Handler) Logger {
 The package also includes a `slogstrict.FromSlog()` function that creates a new logger from a `*slog.Logger`.
 
 ```go
-// Create a new [Logger] from a [slog.Handler]
-func New(h slog.Handler) Logger {
-	return impl{slog.New(h)}
+// Create a new [Logger] from a [*slog.Logger]
+func FromSlog(l *slog.Logger) Logger {
+	return logger{l}
 }
 ```
