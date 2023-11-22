@@ -76,5 +76,6 @@ func (s logger) log(ctx context.Context, level slog.Level, msg string, attrs ...
 	var pcs [1]uintptr
 	runtime.Callers(3, pcs[:]) // 3 is used as this how deep we are in the call stack [Caller, (Level), log]
 	r := slog.NewRecord(time.Now(), slog.LevelInfo, msg, pcs[0])
+	r.AddAttrs(attrs...)
 	_ = s.Logger.Handler().Handle(ctx, r)
 }
