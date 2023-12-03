@@ -66,3 +66,7 @@ func (s logger) Error(ctx context.Context, msg string, err error, attrs ...slog.
 	}
 	s.Logger.LogAttrs(ctx, slog.LevelError, msg, attrs...)
 }
+
+func (s logger) ToSlog() *slog.Logger {
+	return s.Logger
+}
