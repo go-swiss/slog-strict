@@ -18,6 +18,9 @@ type Logger interface {
 
 	// For custom levels
 	Log(ctx context.Context, level slog.Level, msg string, attrs ...slog.Attr)
+
+	// To retrieve a *slog.Logger
+	ToSlog() *slog.Logger
 }
 
 // Create a new [Logger] from a [slog.Handler]

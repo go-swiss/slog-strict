@@ -21,13 +21,9 @@ type Logger interface {
 
 	// For custom levels
 	Log(ctx context.Context, level slog.Level, msg string, attrs ...slog.Attr)
-}
 
-// The default implementation of [Logger] also implements [ToSlogger]
-// so you can always get the underlying [slog.Logger]
-type ToSlogger interface {
-    // To yeid the underlying *slog.Logger
-    ToSlog() *slog.Logger
+	// To retrieve a *slog.Logger
+	ToSlog() *slog.Logger
 }
 ```
 
